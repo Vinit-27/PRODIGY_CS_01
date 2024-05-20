@@ -25,7 +25,7 @@ def Caesar_decrypt(cipher,key):
     return Decipher,flag
 
 st.title('Caesar Cipher')
-plaintext = st.text_area('Plain_Data')
+plaintext = st.text_area('Plain text')
 key = st.number_input('key',min_value=1,max_value=25,step=1)
 
 flag = 0
@@ -34,10 +34,10 @@ if len(plaintext)!=0:
     cipher,flag = Caesar_encrypt(plaintext,int(key))
     if flag == 1:
         st.write("Woohoo!! Encryption Done!")
-        st.text_area('Cipher_text',value=cipher)
+        st.text_area('Cipher text',value=cipher)
 
 if len(cipher)!=0:
     decipher,flag = Caesar_decrypt(cipher,int(key))
     if flag == 1:
         st.write("Woohoo!! Decryption Done!")
-        st.text_area('Cipher_text',value=decipher)
+        st.text_area('decipher text',value=decipher)
