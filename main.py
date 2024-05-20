@@ -1,6 +1,6 @@
 import streamlit as st
 
-def Ceasor_encrypt(data,key):
+def Caesar_encrypt(data,key):
     cipher = ''
     flag = 1
     for i in data:
@@ -12,7 +12,7 @@ def Ceasor_encrypt(data,key):
             cipher += i
     return cipher,flag
 
-def Ceasor_decrypt(cipher,key):
+def Caesar_decrypt(cipher,key):
     Decipher = ''
     flag = 1
     for i in cipher:
@@ -24,20 +24,20 @@ def Ceasor_decrypt(cipher,key):
             Decipher += i
     return Decipher,flag
 
-st.title('Ceasor Cipher')
+st.title('Caesar Cipher')
 plaintext = st.text_area('Plain_Data')
 key = st.number_input('key',min_value=1,max_value=25,step=1)
 
 flag = 0
 cipher=''
 if len(plaintext)!=0:
-    cipher,flag = Ceasor_encrypt(plaintext,int(key))
+    cipher,flag = Caesar_encrypt(plaintext,int(key))
     if flag == 1:
         st.write("Woohoo!! Encryption Done!")
         st.text_area('Cipher_text',value=cipher)
 
 if len(cipher)!=0:
-    decipher,flag = Ceasor_decrypt(cipher,int(key))
+    decipher,flag = Caesar_decrypt(cipher,int(key))
     if flag == 1:
         st.write("Woohoo!! Decryption Done!")
         st.text_area('Cipher_text',value=decipher)
